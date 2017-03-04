@@ -18,7 +18,7 @@ try:
         article_title = 'Title: ' + str(title.text)
         file_name = title.text
         article_text.append(article_title)   
-    for paragraphs in page.find_all('p', {'class': 'graf'}):
+    for paragraphs in page.find_all(['p','h3'], {'class': 'graf'}):
         article_text.append(paragraphs.text)
     text_for_speech = '\n\n'.join(article_text)
     tts = gTTS(text=text_for_speech, lang='en')
