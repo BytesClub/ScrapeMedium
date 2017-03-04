@@ -2,4 +2,4 @@
 You can change path to save file according to  requirement.
 
 If you run program from terminal run as 
-#python scrapemedium.py <link>
+#python scrapemedium.py [link]
