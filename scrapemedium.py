@@ -1,13 +1,11 @@
 from bs4 import BeautifulSoup, SoupStrainer
-from urllib.request import FancyURLopener
 from gtts import gTTS
 import requests
-import sys
 import os
 try:
     
     article_links = input("Enter url of medium blog\n")
-    #path='/Home/Desktop'
+    path='/home/amit/Documents'
     headers = {
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36'}
  
@@ -24,10 +22,10 @@ try:
         article_text.append(paragraphs.text)
     text_for_speech = '\n\n'.join(article_text)
     tts = gTTS(text=text_for_speech, lang='en')
-    #filename=file_name + " .mp3"
-    #fullpath=os.path.join(path,filename)
-    #tts.save(fullpath)
-    tts.save(file_name + ".mp3")
+    filename=file_name + " .mp3"
+    fullpath=os.path.join(path,filename)
+    tts.save(fullpath)
+    #tts.save(file_name + ".mp3")
 except requests.RequestException as e :
     print(str(e))
     print("error")
