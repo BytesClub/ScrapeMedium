@@ -1,5 +1,5 @@
 # ScrapeMedium can download blog on medium in mp3 format. You have to provide the link.
-You have to change path to save file according to  requirement. Default path is '/home/amit/Documents'(my Documents directory path)
+You have to change path to save file according to  requirement. Default path is '/home/amit/Documents'(mine Documents directory path)
 
 If you run program from terminal  .
 
