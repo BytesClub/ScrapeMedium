@@ -23,13 +23,22 @@ try:
     article_text = []
     file_name = ""
     for title in page.find_all('h1', {'class': 'graf'}):
+        if(sys.version_info >= (3, 0)):
+           article_title = 'Title: ' + str((title.text))
+        else:
+           article_title = 'Title: ' + str((title.text).encode('utf-8'))
+           
         #article_title = 'Title: ' + str(title.text)
-        article_title = 'Title: ' + str((title.text).encode('utf-8'))
+       # article_title = 'Title: ' + str((title.text).encode('utf-8'))
         #article_title = u' '.join(('Title: ',title.txt)).encode('utf-8').strip()
         file_name = title.text
         article_text.append(article_title)   
-    for paragraphs in page.find_all(['p','h3'], {'class': 'graf'}):
-        article_text.append(str((paragraphs.text).encode('utf-8')))
+    for paragraphs in page.find_all(['p','h3','blockquote'], {'class': 'graf'}):
+           if(sys.version_info >= (3, 0)):
+              article_text.append(str((paragraphs.text)))
+           else:
+              article_text.append(str((paragraphs.text).encode('utf-8')))
+              
     text_for_speech = '\n\n'.join(article_text)
     tts = gTTS(text=text_for_speech, lang='en')
     filename=file_name + " .mp3"
